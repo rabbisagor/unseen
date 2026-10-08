@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>আমার বাংলাদেশ ভ্রমণ</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3efe6;--card:#fffdf8;--tx:#1b2a30;--mu:#66757a;--ln:#ded8c8;--tl:86%;--acc:#0f6b4f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a1d;--card:#172428;--tx:#e6eeee;--mu:#93a5a8;--ln:#2a3b40;--tl:24%}}
+:root[data-theme="dark"]{--bg:#0f1a1d;--card:#172428;--tx:#e6eeee;--mu:#93a5a8;--ln:#2a3b40;--tl:24%}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Hind Siliguri",system-ui,sans-serif}
+header{padding:20px 16px 8px;max-width:640px;margin:auto}
+h1{font-size:26px;line-height:1.2;margin:0 0 4px;font-weight:700}
+.sub{color:var(--mu);margin:0;font-size:14px}
+nav{display:flex;gap:6px;max-width:640px;margin:10px auto;padding:0 16px;overflow-x:auto}
+nav button{flex:none;border:1px solid var(--ln);background:var(--card);color:var(--tx);padding:7px 14px;border-radius:99px;font:inherit;font-size:14px}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+main{max-width:640px;margin:auto;padding:0 16px 40px}
+section{display:none}section.on{display:block}
+.box{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:10px 0}
+.cnt{font-size:34px;font-weight:700;color:var(--acc);line-height:1}
+.bar{height:8px;background:var(--ln);border-radius:9px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--acc);transition:width .3s}
+svg.map{width:100%;height:auto;display:block}
+svg.map rect{cursor:pointer;stroke:var(--card);stroke-width:1}
+#info{min-height:26px;font-weight:600;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button.b,a.b{border:1px solid var(--ln);background:var(--card);color:var(--tx);padding:8px 14px;border-radius:10px;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
+button.p,a.p{background:var(--acc);color:#fff;border-color:var(--acc)}
+input[type=text],input[type=number]{width:100%;border:1px solid var(--ln);background:var(--bg);color:var(--tx);padding:9px 12px;border-radius:10px;font:inherit}
+label{font-size:13px;color:var(--mu);display:block;margin:8px 0 3px}
+.dot{width:30px;height:30px;border-radius:50%;border:3px solid transparent;padding:0}
+.dot.on{border-color:var(--tx)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.chip{border:1px solid var(--ln);background:var(--bg);color:var(--tx);padding:3px 11px;border-radius:99px;font:inherit;font-size:14px}
+.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+h3{margin:0;font-size:16px}
+.dh{display:flex;justify-content:space-between;margin-top:10px}.dh span{color:var(--mu);font-size:13px}
+.q{font-size:18px;font-weight:600;margin:6px 0 10px}
+.opt{display:block;width:100%;text-align:left;margin:6px 0}
+.opt.ok{background:#1f8f5f;color:#fff}.opt.no{background:#c0392b;color:#fff}
+.bd{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--ln)}
+.bd.off{opacity:.35;filter:grayscale(1)}.bd b{font-size:22px}
+#md{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;flex-direction:column;align-items:center;gap:10px;padding:16px;overflow:auto;z-index:9}
+#md.on{display:flex}#md img{max-width:100%;border-radius:8px;background:#fff}
+@media print{body>*:not(#md){display:none!important}#md{position:static;background:none;display:block}#md .row{display:none}}
+</style></head><body>
+<header><h1>আমার বাংলাদেশ ভ্রমণ</h1><p class="sub">যে জেলায় গেছেন, ম্যাপে রাঙিয়ে নিন। পরের ট্রিপও সাজান।</p></header>
+<nav id="nav"></nav>
+<main>
+<section id="t0" class="on">
+ <div class="box"><div class="row" style="justify-content:space-between"><div><span class="cnt" id="c0">০</span><span class="sub"> / ৬৪ জেলা</span></div><div class="sub" id="pc"></div></div><div class="bar"><i id="pb"></i></div></div>
+ <div class="box"><div id="info">জেলায় ট্যাপ করুন</div><svg class="map" id="m0" viewBox="0 0 480 440"></svg>
+ <div class="row" style="margin-top:8px"><button class="b" id="all">সব বাছাই</button><button class="b" id="clr">সব মুছুন</button></div></div>
+ <div class="box"><label>আপনার নাম (ম্যাপে দেখাবে)</label><input type="text" id="nm" placeholder="যেমন: রাহিম">
+ <label>রঙের থিম</label><div class="row" id="th"></div>
+ <label>ডাউনলোড</label><div class="row"><button class="b p" data-e="png">PNG</button><button class="b p" data-e="jpg">JPG</button><button class="b p" data-e="pdf">PDF</button><button class="b" id="sh">শেয়ার</button></div></div>
+ <div id="l0"></div>
+</section>
+<section id="t1">
+ <div class="box"><div id="info1">যেসব জেলায় যেতে চান, ট্যাপ করুন</div><svg class="map" id="m1" viewBox="0 0 480 440"></svg></div>
+ <div class="box"><div class="row"><div style="flex:1"><label>কত দিন</label><input type="number" id="dy" value="3" min="1"></div><div style="flex:1"><label>কতজন</label><input type="number" id="pp" value="2" min="1"></div></div>
+ <label>মোট বাজেট ৳ (ঐচ্ছিক)</label><input type="number" id="bg" placeholder="যেমন: 20000">
+ <label><input type="checkbox" id="rt" checked> শেষে শুরুর জায়গায় ফিরবো</label></div>
+ <div class="box" id="pl"></div>
+ <div id="l1"></div>
+</section>
+<section id="t2"><div class="box" id="qz"></div></section>
+<section id="t3"><div class="box" id="bds"></div></section>
+</main>
+<div id="md"><img id="im" alt=""><div class="row"><a class="b p" id="dl" download>ডাউনলোড</a><button class="b" id="pr">প্রিন্ট</button><button class="b" id="cl">বন্ধ</button></div><div class="sub" style="color:#ccc">ডাউনলোড না হলে ছবিতে লং-প্রেস করে সেভ করুন।</div></div>
+<script>
+const B=n=>String(n).replace(/\d/g,d=>'০১২৩৪৫৬৭৮৯'[d]);
+const DV=[
+["রংপুর","পঞ্চগড়:2,0;লালমনিরহাট:4,0;কুড়িগ্রাম:5,0;ঠাকুরগাঁও:1,1;দিনাজপুর:2,1;নীলফামারী:3,1;রংপুর:4,1;গাইবান্ধা:5,1"],
+["রাজশাহী","জয়পুরহাট:2,2;বগুড়া:4,2;নওগাঁ:2,3;সিরাজগঞ্জ:5,3;চাঁপাইনবাবগঞ্জ:1,4;রাজশাহী:2,4;নাটোর:3,4;পাবনা:4,4"],
+["ময়মনসিংহ","শেরপুর:7,1;নেত্রকোনা:8,1;জামালপুর:6,2;ময়মনসিংহ:7,2"],
+["সিলেট","সুনামগঞ্জ:9,1;সিলেট:10,1;হবিগঞ্জ:9,2;মৌলভীবাজার:10,2"],
+["ঢাকা","কিশোরগঞ্জ:8,2;টাঙ্গাইল:6,3;গাজীপুর:7,3;নরসিংদী:8,3;মানিকগঞ্জ:6,4;ঢাকা:7,4;নারায়ণগঞ্জ:8,4;রাজবাড়ী:5,5;ফরিদপুর:6,5;মুন্সীগঞ্জ:7,5;গোপালগঞ্জ:6,6;মাদারীপুর:7,6;শরীয়তপুর:8,6"],
+["খুলনা","মেহেরপুর:2,5;কুষ্টিয়া:3,5;চুয়াডাঙ্গা:2,6;ঝিনাইদহ:3,6;মাগুরা:4,6;যশোর:3,7;নড়াইল:4,7;সাতক্ষীরা:3,8;খুলনা:4,8;বাগেরহাট:5,8"],
+["বরিশাল","বরিশাল:7,7;ঝালকাঠি:6,8;ভোলা:8,8;পিরোজপুর:5,9;পটুয়াখালী:7,9;বরগুনা:6,10"],
+["চট্টগ্রাম","ব্রাহ্মণবাড়িয়া:9,3;কুমিল্লা:9,4;চাঁদপুর:8,5;ফেনী:10,5;লক্ষ্মীপুর:9,6;নোয়াখালী:10,6;খাগড়াছড়ি:11,4;রাঙামাটি:11,5;চট্টগ্রাম:10,7;বান্দরবান:11,7;কক্স বাজার:10,8"]];
+const DS=[];DV.forEach(([,s],i)=>s.split(';').forEach(p=>{const[n,c]=p.split(':'),[x,y]=c.split(',').map(Number);DS.push({n,d:i,x,y})}));
+const ACC=['#0f6b4f','#1c6dd0','#d9622b','#7b3fb3','#c2255c'];
+let S={vis:[],plan:[],acc:0,name:''};
+try{Object.assign(S,JSON.parse(localStorage.getItem('bdtrip')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('bdtrip',JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s);
+const TABS=['ম্যাপ','ট্রিপ প্ল্যানার','কুইজ','ব্যাজ'];
+$('#nav').innerHTML=TABS.map((t,i)=>`<button data-t="${i}">${t}</button>`).join('');
+$('#nav').onclick=e=>{const t=e.target.dataset.t;if(t==null)return;document.querySelectorAll('nav button').forEach((b,i)=>b.classList.toggle('on',i==t));document.querySelectorAll('section').forEach((s,i)=>s.classList.toggle('on',i==t));if(t==2&&!Q.n)quiz();render()};
+document.querySelector('nav button').classList.add('on');
+function toggle(k,n){const a=S[k],i=a.indexOf(n);i<0?a.push(n):a.splice(i,1);save();render()}
+function draw(el,k){const s=new Set(S[k]);el.innerHTML=DS.map((q,i)=>`<rect data-i="${i}" x="${q.x*40+2}" y="${q.y*40+2}" width="36" height="36" rx="7" style="fill:${s.has(q.n)?'var(--acc)':`hsl(${q.d*45} 38% var(--tl))`}"/>`).join('');
+ el.onclick=e=>{const i=e.target.dataset.i;if(i==null)return;const q=DS[i];(k=='vis'?$('#info'):$('#info1')).textContent=q.n+' · '+DV[q.d][0]+' বিভাগ';toggle(k,q.n)}}
+function chips(el,k){const s=new Set(S[k]);el.innerHTML=DV.map(([dn],d)=>{const L=DS.filter(q=>q.d==d),v=L.filter(q=>s.has(q.n)).length;return `<div class="dh"><h3>${dn}</h3><span>${B(v)}/${B(L.length)}</span></div><div class="chips">${L.map(q=>`<button class="chip${s.has(q.n)?' on':''}" data-n="${q.n}">${q.n}</button>`).join('')}</div>`}).join('');
+ el.onclick=e=>{const n=e.target.dataset.n;if(n)toggle(k,n)}}
+function render(){
+ document.documentElement.style.setProperty('--acc',ACC[S.acc]);
+ const n=S.vis.length;$('#c0').textContent=B(n);$('#pc').textContent=B(Math.round(n/64*100))+'% বাংলাদেশ দেখা';$('#pb').style.width=n/64*100+'%';
+ draw($('#m0'),'vis');draw($('#m1'),'plan');chips($('#l0'),'vis');chips($('#l1'),'plan');
+ $('#th').innerHTML=ACC.map((c,i)=>`<button class="dot${i==S.acc?' on':''}" data-a="${i}" style="background:${c}"></button>`).join('');
+ plan();badges()}
+$('#th').onclick=e=>{const a=e.target.dataset.a;if(a!=null){S.acc=+a;save();render()}};
+$('#nm').value=S.name;$('#nm').oninput=e=>{S.name=e.target.value;save()};
+$('#all').onclick=()=>{S.vis=DS.map(q=>q.n);save();render()};$('#clr').onclick=()=>{S.vis=[];save();render()};
+$('#sh').onclick=async()=>{const t=`আমি বাংলাদেশের ${B(S.vis.length)}টি জেলা ঘুরেছি! আপনি কতটা ঘুরেছেন?`;try{if(navigator.share)await navigator.share({text:t});else{await navigator.clipboard.writeText(t);$('#sh').textContent='কপি হয়েছে'}}catch(e){}};
+// planner
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y)*38;
+function plan(){const el=$('#pl');const sel=S.plan.map(n=>DS.find(q=>q.n==n));
+ if(!sel.length){el.innerHTML='<b>আপনার রুট</b><div class="sub">ম্যাপ বা তালিকা থেকে জেলা বেছে নিন। রুট এখানে সাজানো হবে।</div>';return}
+ const rest=sel.slice(1),r=[sel[0]];while(rest.length){const l=r[r.length-1];rest.sort((a,b)=>dist(l,a)-dist(l,b));r.push(rest.shift())}
+ let km=0;for(let i=1;i<r.length;i++)km+=dist(r[i-1],r[i]);if($('#rt').checked&&r.length>1)km+=dist(r[r.length-1],r[0]);
+ const d=Math.max(1,+$('#dy').value||1),p=Math.max(1,+$('#pp').value||1),bg=+$('#bg').value||0;
+ let bt='';if(bg){const x=bg/(d*p);bt=`<p>জনপ্রতি দিনে প্রায় ৳${B(Math.round(x))} <b>(${x<1500?'বাজেট':x<3500?'মধ্যম':'আরামদায়ক'} ট্রিপ)</b></p>`}
+ el.innerHTML=`<b>সাজানো রুট</b><p>${r.map(q=>q.n).join(' → ')}${$('#rt').checked&&r.length>1?' → '+r[0].n:''}</p><p>মোট ${B(r.length)}টি জেলা · সরলরেখায় আনুমানিক ${B(Math.round(km))} কিমি · প্রতি জেলায় গড়ে ${B((d/r.length).toFixed(1))} দিন</p>${bt}<div class="sub">দূরত্ব ও খরচ আনুমানিক। যাওয়ার আগে ভাড়া ও পরিস্থিতি যাচাই করে নিন।</div><div class="row" style="margin-top:8px"><button class="b" id="cp">রুট কপি</button><button class="b" id="cx">রুট মুছুন</button></div>`;
+ $('#cp').onclick=()=>{try{navigator.clipboard.writeText(r.map(q=>q.n).join(' → '))}catch(e){}};$('#cx').onclick=()=>{S.plan=[];save();render()}}
+['dy','pp','bg','rt'].forEach(i=>$('#'+i).oninput=plan);
+// quiz
+let Q={n:0,s:0,list:[]};
+const sh=a=>a.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]);
+function quiz(){Q={n:1,s:0,list:sh(DS).slice(0,10).map((q,i)=>{if(i%4==3){const d=q.d,c=DV[d][1].split(';').length;const o=sh([...new Set([c,c+1,c+3,Math.max(2,c-2)])]).slice(0,4);if(!o.includes(c))o[0]=c;return{t:`${DV[d][0]} বিভাগে কয়টি জেলা?`,o:sh(o).map(B),a:B(c)}}
+ const o=sh([q.d,...sh([0,1,2,3,4,5,6,7].filter(x=>x!=q.d)).slice(0,3)]);return{t:`${q.n} কোন বিভাগে?`,o:o.map(x=>DV[x][0]),a:DV[q.d][0]}})};qshow(0)}
+function qshow(i){const el=$('#qz');if(i>=10){el.innerHTML=`<div class="q">স্কোর: ${B(Q.s)}/১০</div><p class="sub">${Q.s>=8?'দারুণ! আপনি দেশটা ভালোই চেনেন।':Q.s>=5?'ভালো চেষ্টা। আরও ঘুরলে আরও চিনবেন।':'ম্যাপে আরও জেলা দেখে নিন, তারপর আবার খেলুন।'}</p><button class="b p" id="qa">আবার খেলুন</button>`;$('#qa').onclick=quiz;return}
+ const q=Q.list[i];el.innerHTML=`<div class="sub">প্রশ্ন ${B(i+1)}/১০</div><div class="q">${q.t}</div>`+q.o.map(o=>`<button class="b opt">${o}</button>`).join('');
+ el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{el.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(x.textContent==q.a)x.classList.add('ok')});if(b.textContent==q.a)Q.s++;else b.classList.add('no');setTimeout(()=>qshow(i+1),900)})}
+// badges
+function badges(){const n=S.vis.length,L=[[1,'🥾','প্রথম পা','১টি জেলা'],[8,'🎒','ঘুরন্ত','৮টি জেলা'],[16,'🚌','পথিক','১৬টি জেলা'],[32,'🧭','অভিযাত্রী','৩২টি জেলা'],[48,'🏔️','দেশ-চেনা','৪৮টি জেলা'],[64,'🏆','পুরো বাংলাদেশ','সব ৬৪ জেলা']];
+ let h=L.map(([k,e,t,d])=>`<div class="bd${n>=k?'':' off'}"><b>${e}</b><div><div>${t}</div><div class="sub">${d}</div></div></div>`).join('');
+ h+=DV.map(([dn],d)=>{const L2=DS.filter(q=>q.d==d),ok=L2.every(q=>S.vis.includes(q.n));return `<div class="bd${ok?'':' off'}"><b>📍</b><div><div>${dn} বিভাগ সম্পূর্ণ</div><div class="sub">${B(L2.length)}টি জেলা</div></div></div>`}).join('');$('#bds').innerHTML=h}
+// export
+function exp(type){const W=1200,H=1360,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d'),a=ACC[S.acc],F='"Hind Siliguri",sans-serif';
+ x.fillStyle='#f6f2e8';x.fillRect(0,0,W,H);x.fillStyle=a;x.fillRect(0,0,W,16);
+ x.fillStyle='#1b2a30';x.font=`700 54px ${F}`;x.fillText((S.name?S.name+'-এর ':'আমার ')+'বাংলাদেশ ভ্রমণ',60,100);
+ x.font=`400 30px ${F}`;x.fillStyle='#66757a';x.fillText(`${B(S.vis.length)}টি জেলা ঘোরা হয়েছে · ${B(Math.round(S.vis.length/64*100))}%`,60,150);
+ const s=new Set(S.vis);DS.forEach(q=>{const px=60+q.x*90,py=200+q.y*98,v=s.has(q.n);x.fillStyle=v?a:`hsl(${q.d*45} 30% 86%)`;x.beginPath();x.roundRect(px,py,86,94,12);x.fill();x.fillStyle=v?'#fff':'#33464c';x.font=`600 15px ${F}`;x.textAlign='center';x.fillText(q.n,px+43,py+53,78);x.textAlign='left'});
+ x.fillStyle='#66757a';x.font=`400 24px ${F}`;x.fillText('প্রতিটি ঘর একটি জেলা · রঙিন ঘর মানে ঘোরা হয়েছে',60,H-40);
+ const u=c.toDataURL(type=='png'?'image/png':'image/jpeg',.92);$('#im').src=u;$('#dl').href=u;$('#dl').download='bangladesh-trip.'+(type=='png'?'png':'jpg');$('#dl').style.display='';$('#md').classList.add('on');
+ if(type=='pdf'){$('#dl').style.display='none';setTimeout(()=>print(),400)}}
+document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>exp(b.dataset.e));
+$('#cl').onclick=()=>$('#md').classList.remove('on');$('#pr').onclick=()=>print();
+render();
+</script></body></html>
